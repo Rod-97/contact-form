@@ -54,18 +54,19 @@ form {
 
 .field input[type="text"],
 input[type="email"] {
-  height: 40px;
+  height: 35px;
 }
 
 .field input[type="text"],
 input[type="email"],
 textarea {
-  font-size: 20px;
+  font-size: 15px;
   border: 2px solid var(--grey-500);
   border-radius: 5px;
   outline: none;
   width: 100%;
   padding: 10px;
+  cursor: pointer;
 
   &:focus {
     border-color: var(--green-600);
@@ -83,6 +84,10 @@ label {
 
 fieldset {
   border: none;
+}
+
+fieldset label {
+  cursor: pointer;
 }
 
 fieldset .option {
@@ -122,6 +127,10 @@ textarea {
   gap: 20px;
 }
 
+#consent-contact-field label {
+  cursor: pointer;
+}
+
 #submit-btn {
   background-color: var(--green-600);
   color: var(--neutral-white);
@@ -137,5 +146,64 @@ textarea {
     background-color: var(--neutral-white);
     color: var(--green-600);
     border-color: var(--green-600);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  #first-name-field {
+    grid-area: first-name;
+  }
+
+  #last-name-field {
+    grid-area: last-name;
+  }
+
+  #email-field {
+    grid-area: email;
+  }
+
+  #query-field {
+    grid-area: query;
+    display: flex;
+    flex-direction: row;
+  }
+
+  #message-field {
+    grid-area: message;
+  }
+
+  #consent-contact-field {
+    grid-area: consent;
+  }
+
+  #submit-btn {
+    grid-area: submit;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main {
+    width: 600px;
+  }
+
+  form {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "first-name last-name"
+      "email email"
+      "query query"
+      "message message"
+      "consent consent"
+      "submit submit";
+  }
+
+  textarea {
+    height: 80px;
   }
 }
