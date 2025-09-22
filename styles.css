@@ -1,0 +1,19 @@
+:root {
+  --green-200: hsl(148, 38%, 91%);
+}
+
+@font-face {
+  font-family: "Karla";
+  src: url("assets/fonts/Karla-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Karla";
+}
+
+body {
+  background-color: var(--green-200);
+}
