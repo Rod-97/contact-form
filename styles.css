@@ -1,5 +1,9 @@
 :root {
   --green-200: hsl(148, 38%, 91%);
+  --green-600: hsl(169, 82%, 27%);
+  --grey-500: hsl(186, 15%, 59%);
+  --grey-900: hsl(187, 24%, 22%);
+  --neutral-white: hsl(0, 0%, 100%);
 }
 
 @font-face {
@@ -16,4 +20,122 @@
 
 body {
   background-color: var(--green-200);
+  padding: 20px;
+}
+
+h1 {
+  color: var(--grey-900);
+  margin-bottom: 25px;
+}
+
+main {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 15px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 5px;
+  width: 100%;
+  padding: 10px;
+}
+
+.field input[type="text"],
+input[type="email"] {
+  height: 40px;
+}
+
+.field input[type="text"],
+input[type="email"],
+textarea {
+  font-size: 20px;
+  border: 2px solid var(--grey-500);
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+
+  &:focus {
+    border-color: var(--green-600);
+  }
+}
+
+legend,
+label {
+  color: var(--grey-900);
+}
+
+.asterisk {
+  color: var(--green-600);
+}
+
+fieldset {
+  border: none;
+}
+
+fieldset .option {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  border: 2px solid var(--grey-500);
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px 20px;
+}
+
+fieldset .option input[type="radio"] {
+  height: 30px;
+
+  &:checked {
+    accent-color: var(--green-600);
+  }
+}
+
+fieldset .option:has(input:checked) {
+  background-color: var(--green-200);
+}
+
+textarea {
+  width: 100%;
+  height: 250px;
+}
+
+#consent-contact-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+#submit-btn {
+  background-color: var(--green-600);
+  color: var(--neutral-white);
+  width: 100%;
+  border: 3px solid transparent;
+  font-size: 20px;
+  padding: 20px 0;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--neutral-white);
+    color: var(--green-600);
+    border-color: var(--green-600);
+  }
 }
