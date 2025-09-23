@@ -4,6 +4,7 @@
   --grey-500: hsl(186, 15%, 59%);
   --grey-900: hsl(187, 24%, 22%);
   --neutral-white: hsl(0, 0%, 100%);
+  --primary-red: hsl(0, 66%, 54%);
 }
 
 @font-face {
@@ -71,6 +72,10 @@ textarea {
   &:focus {
     border-color: var(--green-600);
   }
+
+  &:user-invalid {
+    border-color: var(--primary-red);
+  }
 }
 
 legend,
@@ -82,15 +87,22 @@ label {
   color: var(--green-600);
 }
 
-fieldset {
+#query-field {
   border: none;
 }
 
-fieldset label {
+#query-field label {
   cursor: pointer;
 }
 
-fieldset .option {
+#query-field .options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+#query-field .option {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -102,7 +114,7 @@ fieldset .option {
   padding: 10px 20px;
 }
 
-fieldset .option input[type="radio"] {
+#query-field .option input[type="radio"] {
   height: 30px;
 
   &:checked {
@@ -110,7 +122,7 @@ fieldset .option input[type="radio"] {
   }
 }
 
-fieldset .option:has(input:checked) {
+#query-field .option:has(input:checked) {
   background-color: var(--green-200);
 }
 
@@ -121,10 +133,22 @@ textarea {
 
 #consent-contact-field {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  > * {
+    width: 100%;
+  }
+}
+
+#consent-contact-field .core {
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 #consent-contact-field label {
@@ -149,6 +173,15 @@ textarea {
   }
 }
 
+.error-message {
+  color: var(--primary-red);
+  display: none;
+}
+
+.error-message.active {
+  display: block;
+}
+
 @media screen and (min-width: 1440px) {
   #first-name-field {
     grid-area: first-name;
@@ -165,6 +198,10 @@ textarea {
   #query-field {
     grid-area: query;
     display: flex;
+    flex-direction: column;
+  }
+
+  #query-field .options {
     flex-direction: row;
   }
 
